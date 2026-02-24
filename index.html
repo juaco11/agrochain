@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Frutería Blockchain - Trazabilidad</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>📦 FrutaChain System</h1>
+            <p>Proyecto Final ASIR - Trazabilidad de Lotes</p>
+        </header>
+
+        <main>
+            <section class="card">
+                <h2>🚜 Registro de Cosecha</h2>
+                <input type="text" id="idLote" placeholder="ID Lote (ej. BCN-001)">
+                <input type="text" id="tipoFruta" placeholder="Producto (ej. Naranjas)">
+                <button onclick="blockchain.crearCosecha()">Firmar Cosecha</button>
+            </section>
+
+            <section class="card">
+                <h2>🚚 Registro de Transporte</h2>
+                <input type="text" id="idCamion" placeholder="Matrícula del Vehículo">
+                <button onclick="blockchain.crearTransporte()">Firmar Recogida</button>
+            </section>
+
+            <section class="card result">
+                <h2>📱 QR de Trazabilidad Final</h2>
+                <div id="qrcode"></div>
+                <pre id="log">Historial de bloques vacío...</pre>
+            </section>
+        </main>
+    </div>
+    <script src="blockchain-logic.js"></script>
+</body>
+</html>
